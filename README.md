@@ -1,10 +1,11 @@
 # Description
 
 Put together some example beaconv2 instances by whatever means possible. We
-chose 5 donors of cutaneous subtype from the MELA 183 Nature paper. The code
-is not runnable anywhere but QIMR Berghofer as it has dependencies on our
-internal Stardog database (`grafli`) and python libraries (`graflipy`) but the
-generated outputs are completely generic, valid, beacon v2 data.
+chose 5 donors of cutaneous subtype from the Hayward et al Nature paper
+https://doi.org/10.1038/nature22071 . The code is not runnable anywhere but
+QIMR Berghofer as it has dependencies on our internal Stardog database
+(`grafli`) and python libraries (`graflipy`) but the generated outputs are
+completely generic, valid, beacon v2 data.
 
 # Notes 
 
