@@ -1,0 +1,55 @@
+SELECT DISTINCT
+	?s
+	?aligner
+	?pipelineName
+	?analysisDate
+	?runId
+	?biosampleId
+	?individualId
+{
+	# These 5 donors are in the 183 published in Nature:
+	# study:7def39f1-f447-4ae0-be88-e80199adc6de
+	# They each have just 2 samples in the cutaneous substudy
+	# (below). They are in Mela183_cutaneous_tumors_BRAF.tsv.
+	# 4 of the cases have a BRAF V600 mutation (not 0231).
+	VALUES ?submittedWithID {
+		"MELA-0229"
+		"MELA-0230"
+		"MELA-0231"
+		"MELA-0232"
+		"MELA-0236"
+	}
+	?d a :Donor ;
+		:submittedWithID ?submittedWithID .
+	# These selected samples are in the cutaneous subtype study:
+	# study:0da7781d-bdc7-47d7-b170-ff64e901591e
+	# There may be other samples from the 5 donors that are
+	# not explicitly in this study — we don't care about them here
+	?cs a :CollectedSample ;
+		:wasDerivedFrom ?d ;
+		# enforce just one biosampleId per analysis
+		:hasSampleType / :isControlType false ;
+		:isClassifiedBy study:0da7781d-bdc7-47d7-b170-ff64e901591e .
+	?arg a :AlignedReadGroup ;
+		:wasDerivedFrom + ?cs ;
+		# aligner is implicit as the :plan label
+		:wasGeneratedBy / :used / rdfs:label ?alignerplan .
+	?args a :AlignedReadGroupSet ;
+		:wasDerivedFrom ?arg .
+	?s a :Analysis ;
+		:wasDerivedFrom + ?args ;
+		:wasGeneratedBy ?ar .
+	?ar a :AnalysisRun ;
+		rdfs:label ?arlabel ;
+		# caller is implicit in the :plan label
+		:used / rdfs:label ?analysisplan .
+	# just select qsnp for now
+	FILTER regex (?analysisplan, '^Qsnp vcf') .
+	BIND(?alignerplan AS ?aligner)
+	BIND(?analysisplan AS ?pipelineName)
+	# data is implicit in :AnalysisRun label
+	BIND(STRBEFORE(?arlabel, " ") AS ?analysisDate) .
+	BIND(?args AS ?runId)
+	BIND(?cs AS ?biosampleId)
+	BIND(?d AS ?individualId)
+}

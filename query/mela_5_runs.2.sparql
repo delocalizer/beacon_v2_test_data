@@ -1,0 +1,57 @@
+# Each :SequencingRun in grafli generally has multiple samples from multiple
+# donors in different lanes. Moreover we don't capture runDate on them, which
+# is a required field for the beacon experimental run model.
+#
+# Possible workaround: construct an artifical "run" working up from the ARGS
+# level, and attach the platform and library strategy info to that.
+# What to use for runId? Something artificial like run:[ARGS uuid].
+# What to use for date? Perhaps the date of the submission of the ReadGroups?
+
+SELECT DISTINCT
+	?s
+	?platformModel
+	?runDate
+	?libraryStrategy
+	?biosampleId
+	?individualId
+{
+	# These 5 donors are in the 183 published in Nature:
+	# study:7def39f1-f447-4ae0-be88-e80199adc6de
+	# They each have just 2 samples in the cutaneous substudy
+	# (below). They are in Mela183_cutaneous_tumors_BRAF.tsv.
+	# 4 of the cases have a BRAF V600 mutation (not 0231).
+	VALUES ?submittedWithID {
+		"MELA-0229"
+		"MELA-0230"
+		"MELA-0231"
+		"MELA-0232"
+		"MELA-0236"
+	}
+	?d a :Donor ;
+		:submittedWithID ?submittedWithID .
+	# These selected samples are in the cutaneous subtype study:
+	# study:0da7781d-bdc7-47d7-b170-ff64e901591e
+	# There may be other samples from the 5 donors that are
+	# not explicitly in this study — we don't care about them here
+	?cs a :CollectedSample ;
+		:wasDerivedFrom ?d ;
+		# enforce just one biosampleId per run
+		:hasSampleType / :isControlType false ;
+		:isClassifiedBy study:0da7781d-bdc7-47d7-b170-ff64e901591e .
+	?sl a :SequencingLibrary ;
+		:wasDerivedFrom ?cs .
+	?rg a :ReadGroup ;
+		:wasInstantiatedBy / :endedAtTime ?et ;
+		:wasGeneratedBy / :hadSequencingPlatform ?platformModel ;
+		:wasDerivedFrom ?sl .
+	?s a :AlignedReadGroupSet ;
+		:uuid ?argsuuid ;
+		:wasDerivedFrom + ?rg
+	OPTIONAL {?sl :hadCaptureKit ?ck} .
+	# Infer ReadGroup submission endedAtTime as runDate -
+	# very rough but the best estimate we've got
+	BIND(STRBEFORE(STR(?et), "T") AS ?runDate) .
+	BIND(COALESCE(?ck, "WGS") AS ?libraryStrategy) .
+	BIND(?cs AS ?biosampleId)
+	BIND(?d AS ?individualId)
+}

@@ -1,0 +1,4 @@
+# Contents
+
+* *.sparql are CONSTRUCT queries that return triples (e.g. TTL)
+* *.2.sparql are SELECT queries that return bindings (e.g. CSV)

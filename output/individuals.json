@@ -1,0 +1,121 @@
+{
+  "$schema": "individuals/defaultSchema.json",
+  "diseases": [
+    {
+      "ageOfOnset": {
+        "age": {
+          "iso8601duration": "P48Y"
+        }
+      },
+      "diseaseCode": {
+        "id": "ICD10CM:C43.5",
+        "label": "Malignant melanoma of trunk"
+      }
+    }
+  ],
+  "geographicOrigin": {
+    "id": "GAZ:00000463",
+    "label": "Australia"
+  },
+  "id": "00fb6571-ac35-47f1-a721-1e7fe5357f8f",
+  "sex": {
+    "id": "NCIT:C20197",
+    "label": "male"
+  }
+}{
+  "$schema": "individuals/defaultSchema.json",
+  "diseases": [
+    {
+      "ageOfOnset": {
+        "age": {
+          "iso8601duration": "P47Y"
+        }
+      },
+      "diseaseCode": {
+        "id": "ICD10CM:C43.5",
+        "label": "Malignant melanoma of trunk"
+      }
+    }
+  ],
+  "geographicOrigin": {
+    "id": "GAZ:00000463",
+    "label": "Australia"
+  },
+  "id": "37adbb8a-c09b-470d-9344-6ee931758811",
+  "sex": {
+    "id": "NCIT:C16576",
+    "label": "female"
+  }
+}{
+  "$schema": "individuals/defaultSchema.json",
+  "diseases": [
+    {
+      "ageOfOnset": {
+        "age": {
+          "iso8601duration": "P70Y"
+        }
+      },
+      "diseaseCode": {
+        "id": "ICD10CM:C43.4",
+        "label": "Malignant melanoma of scalp and neck"
+      }
+    }
+  ],
+  "geographicOrigin": {
+    "id": "GAZ:00000463",
+    "label": "Australia"
+  },
+  "id": "cc29e1cf-e142-4c3e-9ff3-f1a0c0e441d3",
+  "sex": {
+    "id": "NCIT:C20197",
+    "label": "male"
+  }
+}{
+  "$schema": "individuals/defaultSchema.json",
+  "diseases": [
+    {
+      "ageOfOnset": {
+        "age": {
+          "iso8601duration": "P30Y"
+        }
+      },
+      "diseaseCode": {
+        "id": "ICD10CM:C43.4",
+        "label": "Malignant melanoma of scalp and neck"
+      }
+    }
+  ],
+  "geographicOrigin": {
+    "id": "GAZ:00000463",
+    "label": "Australia"
+  },
+  "id": "d7eaea57-565d-40a9-99cf-dbfa282900ab",
+  "sex": {
+    "id": "NCIT:C20197",
+    "label": "male"
+  }
+}{
+  "$schema": "individuals/defaultSchema.json",
+  "diseases": [
+    {
+      "ageOfOnset": {
+        "age": {
+          "iso8601duration": "P16Y"
+        }
+      },
+      "diseaseCode": {
+        "id": "ICD10CM:C43.5",
+        "label": "Malignant melanoma of trunk"
+      }
+    }
+  ],
+  "geographicOrigin": {
+    "id": "GAZ:00000463",
+    "label": "Australia"
+  },
+  "id": "e8998eb2-ee5c-45d3-b411-67d7c3888bf2",
+  "sex": {
+    "id": "NCIT:C20197",
+    "label": "male"
+  }
+}

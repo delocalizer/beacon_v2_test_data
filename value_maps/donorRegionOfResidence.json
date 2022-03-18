@@ -1,0 +1,14 @@
+{
+  "AU": {"id": "GAZ:00000463", "label": "Australia"},
+  "AU-NSW": {"id": "GAZ:00002793", "label": "Australia - New South Wales"},
+  "AU-NT": {"id": "GAZ:00002787", "label": "Australia - Northern Territory"},
+  "AU-SA": {"id": "GAZ:00002791", "label": "Australia - South Australia"},
+  "AU-WA": {"id": "GAZ:00002789", "label": "Australia - Western Australia"},
+  "Australia": {"id": "GAZ:00000463", "label": "Australia"},
+  "DE": {"id": "GAZ:00002646", "label": "Germany"},
+  "GB": {"id": "GAZ:00004790", "label": "Great Britain"},
+  "IT": {"id": "GAZ:00002650", "label": "Italy"},
+  "PR": {"id": "GAZ:00002822", "label": "Puerto Rico"},
+  "US": {"id": "GAZ:00002459", "label": "United States"},
+  "US-GA": {"id": "GAZ:00002611", "label": "United States - Georgia"}
+}

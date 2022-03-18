@@ -1,0 +1,8 @@
+{
+  "8721/3": {"id": "ICDO3:8721/3", "label": "Nodular melanoma"},
+  "8742/3": {"id": "ICDO3:8742/3", "label": "Lentigo maligna melanoma"},
+  "8743/3": {"id": "ICDO3:8743/3", "label": "Superficial spreading melanoma"},
+  "8744/3": {"id": "ICDO3:8744/3", "label": "Acral lentiginous melanoma, malignant"},
+  "8745/3": {"id": "ICDO3:8745/3", "label": "Desmoplastic melanoma, malignant"},
+  "8746/3": {"id": "ICDO3:8746/3", "label": "Mucosal lentiginous melanoma"}
+}

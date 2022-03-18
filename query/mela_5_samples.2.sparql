@@ -1,0 +1,26 @@
+SELECT DISTINCT ?s ?p ?o ?individualId {
+	# These 5 donors are in the 183 published in Nature:
+	# study:7def39f1-f447-4ae0-be88-e80199adc6de
+	# They each have just 2 samples in the cutaneous substudy
+	# (below). They are in Mela183_cutaneous_tumors_BRAF.tsv.
+	# 4 of the cases have a BRAF V600 mutation (not 0231).
+	VALUES ?submittedWithID {
+		"MELA-0229"
+		"MELA-0230"
+		"MELA-0231"
+		"MELA-0232"
+		"MELA-0236"
+	}
+	?d a :Donor ;
+		:submittedWithID ?submittedWithID .
+	# These selected samples are in the cutaneous subtype study:
+	# study:0da7781d-bdc7-47d7-b170-ff64e901591e
+	# There may be other samples from the 5 donors that are
+	# not explicitly in this study — we don't care about them here
+	?cs a :CollectedSample ;
+		:wasDerivedFrom ?d ;
+		:isClassifiedBy study:0da7781d-bdc7-47d7-b170-ff64e901591e .
+	BIND (?cs AS ?s)
+	BIND (?d AS ?individualId)
+	?s ?p ?o
+}

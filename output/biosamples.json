@@ -1,0 +1,151 @@
+{
+  "$schema": "biosamples/defaultSchema.json",
+  "biosampleStatus": {
+    "id": "EFO:0010941",
+    "label": "metastasis sample"
+  },
+  "histologicalDiagnosis": {
+    "id": "ICDO3:8743/3",
+    "label": "Superficial spreading melanoma"
+  },
+  "id": "25e20393-752b-4796-9001-0e22ee04c586",
+  "individualId": "d7eaea57-565d-40a9-99cf-dbfa282900ab",
+  "notes": "brain|16_tumour_metastasis_to_distant_location|1_dna",
+  "sampleOriginType": {
+    "id": "OBI:0001479",
+    "label": "specimen from organism"
+  }
+}{
+  "$schema": "biosamples/defaultSchema.json",
+  "biosampleStatus": {
+    "id": "EFO:0009654",
+    "label": "reference sample"
+  },
+  "id": "427e99fe-acff-4177-a7e8-72cd2cc1c32f",
+  "individualId": "00fb6571-ac35-47f1-a721-1e7fe5357f8f",
+  "notes": "blood|1_normal_blood|1_dna",
+  "sampleOriginType": {
+    "id": "OBI:0001479",
+    "label": "specimen from organism"
+  }
+}{
+  "$schema": "biosamples/defaultSchema.json",
+  "biosampleStatus": {
+    "id": "EFO:0009654",
+    "label": "reference sample"
+  },
+  "id": "517112f3-1555-415b-beb5-6a09b188e932",
+  "individualId": "e8998eb2-ee5c-45d3-b411-67d7c3888bf2",
+  "notes": "blood|1_normal_blood|1_dna",
+  "sampleOriginType": {
+    "id": "OBI:0001479",
+    "label": "specimen from organism"
+  }
+}{
+  "$schema": "biosamples/defaultSchema.json",
+  "biosampleStatus": {
+    "id": "EFO:0010941",
+    "label": "metastasis sample"
+  },
+  "histologicalDiagnosis": {
+    "id": "ICDO3:8743/3",
+    "label": "Superficial spreading melanoma"
+  },
+  "id": "51893d3f-e7f3-43f9-9fd0-c0f25ae96804",
+  "individualId": "e8998eb2-ee5c-45d3-b411-67d7c3888bf2",
+  "notes": "brain|16_tumour_metastasis_to_distant_location|1_dna",
+  "sampleOriginType": {
+    "id": "OBI:0001479",
+    "label": "specimen from organism"
+  }
+}{
+  "$schema": "biosamples/defaultSchema.json",
+  "biosampleStatus": {
+    "id": "EFO:0010941",
+    "label": "metastasis sample"
+  },
+  "histologicalDiagnosis": {
+    "id": "ICDO3:8721/3",
+    "label": "Nodular melanoma"
+  },
+  "id": "63762458-902a-4329-a823-703b54cb5f9d",
+  "individualId": "cc29e1cf-e142-4c3e-9ff3-f1a0c0e441d3",
+  "notes": "brain|16_tumour_metastasis_to_distant_location|1_dna",
+  "sampleOriginType": {
+    "id": "OBI:0001479",
+    "label": "specimen from organism"
+  }
+}{
+  "$schema": "biosamples/defaultSchema.json",
+  "biosampleStatus": {
+    "id": "EFO:0009654",
+    "label": "reference sample"
+  },
+  "id": "764e27ec-b8bb-4233-9cf6-5a952120535f",
+  "individualId": "cc29e1cf-e142-4c3e-9ff3-f1a0c0e441d3",
+  "notes": "blood|1_normal_blood|1_dna",
+  "sampleOriginType": {
+    "id": "OBI:0001479",
+    "label": "specimen from organism"
+  }
+}{
+  "$schema": "biosamples/defaultSchema.json",
+  "biosampleStatus": {
+    "id": "EFO:0009654",
+    "label": "reference sample"
+  },
+  "id": "985e68ee-d9ab-4b5a-8e15-ed90f50c490d",
+  "individualId": "37adbb8a-c09b-470d-9344-6ee931758811",
+  "notes": "blood|1_normal_blood|1_dna",
+  "sampleOriginType": {
+    "id": "OBI:0001479",
+    "label": "specimen from organism"
+  }
+}{
+  "$schema": "biosamples/defaultSchema.json",
+  "biosampleStatus": {
+    "id": "EFO:0010941",
+    "label": "metastasis sample"
+  },
+  "histologicalDiagnosis": {
+    "id": "ICDO3:8743/3",
+    "label": "Superficial spreading melanoma"
+  },
+  "id": "bcf76f1a-7109-422d-94c9-5e8364895fa0",
+  "individualId": "00fb6571-ac35-47f1-a721-1e7fe5357f8f",
+  "notes": "brain|16_tumour_metastasis_to_distant_location|1_dna",
+  "sampleOriginType": {
+    "id": "OBI:0001479",
+    "label": "specimen from organism"
+  }
+}{
+  "$schema": "biosamples/defaultSchema.json",
+  "biosampleStatus": {
+    "id": "EFO:0010941",
+    "label": "metastasis sample"
+  },
+  "histologicalDiagnosis": {
+    "id": "ICDO3:8721/3",
+    "label": "Nodular melanoma"
+  },
+  "id": "eeddf701-93f9-4f10-85cb-9dce1760bae8",
+  "individualId": "37adbb8a-c09b-470d-9344-6ee931758811",
+  "notes": "brain|16_tumour_metastasis_to_distant_location|1_dna",
+  "sampleOriginType": {
+    "id": "OBI:0001479",
+    "label": "specimen from organism"
+  }
+}{
+  "$schema": "biosamples/defaultSchema.json",
+  "biosampleStatus": {
+    "id": "EFO:0009654",
+    "label": "reference sample"
+  },
+  "id": "fba9d51c-dd2a-452e-8a40-39e7b73644a1",
+  "individualId": "d7eaea57-565d-40a9-99cf-dbfa282900ab",
+  "notes": "blood|1_normal_blood|1_dna",
+  "sampleOriginType": {
+    "id": "OBI:0001479",
+    "label": "specimen from organism"
+  }
+}

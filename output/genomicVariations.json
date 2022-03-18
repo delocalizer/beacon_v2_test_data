@@ -1,0 +1,84 @@
+{
+  "$schema": "genomicVariant_defaultSchema.json",
+  "variantInternalId": "BRAF V600E TODO",
+  "variation": {
+    "referenceBases": "A",
+    "alternateBases": "T",
+    "variantType": "SNP",
+    "location": {
+      "type": "SequenceLocation",
+      "interval": {
+        "type": "SequenceInterval",
+        "start": {
+          "type": "Number",
+          "value": 140453136
+        },
+        "end": {
+          "type": "Number",
+          "value": 140453136
+        }
+      },
+      "sequence_id": "refseq:NC_000007"
+    }
+  },
+  "identifiers": {
+    "variantAlternativeIds": [
+      {"id": "dbSNP:rs113488022", "reference": "https://www.ncbi.nlm.nih.gov/snp/rs113488022"}
+    ]
+  },
+  "caseLevelData": [
+    {
+      "individualId": "e8998eb2-ee5c-45d3-b411-67d7c3888bf2",
+      "biosampleId": "51893d3f-e7f3-43f9-9fd0-c0f25ae96804",
+      "analysisId": "3281effe-50e5-4234-81a9-8053fe74c6ff",
+      "runId": "c3358000-4df8-4dea-84eb-a0bc7083c398"
+    }, {
+      "individualId": "37adbb8a-c09b-470d-9344-6ee931758811",
+      "biosampleId": "eeddf701-93f9-4f10-85cb-9dce1760bae8",
+      "analysisId": "aabca23a-a46b-4827-8256-a82e8130d552",
+      "runId": "298a0153-2a45-4d67-a34b-ea430afdd477"
+    }
+  ]
+}
+{
+  "$schema": "genomicVariations/defaultSchema.json",
+  "variantInternalId": "BRAF V500K TODO",
+  "variation": {
+    "referenceBases": "AC",
+    "alternateBases": "YT",
+    "variantType": "MNP",
+    "location": {
+      "type": "SequenceLocation",
+      "interval": {
+        "type": "SequenceInterval",
+        "start": {
+          "type": "Number",
+          "value": 140453136
+        },
+        "end": {
+          "type": "Number",
+          "value": 140453137
+        }
+      },
+      "sequence_id": "refseq:NC_000007"
+    }
+  },
+  "identifiers": {
+    "variantAlternativeIds": [
+      {"id": "dbSNP:rs121913227", "reference": "https://www.ncbi.nlm.nih.gov/snp/rs121913227"}
+    ]
+  },
+  "caseLevelData": [
+    {
+      "individualId": "cc29e1cf-e142-4c3e-9ff3-f1a0c0e441d3",
+      "biosampleId": "63762458-902a-4329-a823-703b54cb5f9d",
+      "analysisId": "b0d4f584-6b16-4abf-88c3-413da1a69a40",
+      "runId": "3c95914f-0967-4544-b90d-e0cb7014633c"
+    }, {
+      "individualId": "d7eaea57-565d-40a9-99cf-dbfa282900ab",
+      "biosampleId": "25e20393-752b-4796-9001-0e22ee04c586",
+      "analysisId": "96bfc0db-5652-44e8-b503-1ea7e7b58447",
+      "runId": "35ff58b5-0dd6-4b22-8e38-9b28eebc91cb"
+    }
+  ]
+}
