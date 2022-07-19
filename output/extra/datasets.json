@@ -1,0 +1,16 @@
+{
+  "id": "EGAD00001003388_beacon_demo",
+  "name": "EGAD00001003388 subset for beacon demonstration.",
+  "description": "A small dataset from 5 cutaneous melanoma cases. This is a subset of the AMGP melanoma dataset EGAD00001003388 held at EGA with study accession EGAS00001001552, used for demonstrating data discovery via beacon.",
+  "externalUrl": "https://ega-archive.org/studies/EGAS00001001552",
+  "createDateTime": "2022-07-19T13:17:00+10:00",
+  "updateDateTime": "2022-07-19T13:17:00+10:00",
+  "dataUseConditions": {
+    "duoDataUse": [
+      {
+        "id": "DUO:0000021",
+        "label": "ethics approval required"
+      }
+    ]
+  }
+}
