@@ -19,7 +19,7 @@ LOGGER = logging.getLogger(__name__)
 SCHEMA_BASEURI = ('https://raw.githubusercontent.com/ga4gh-beacon/'
                   'beacon-v2-Models/main/BEACON-V2-Model')
 SCHEMA_NAMES = ['individuals', 'biosamples', 'runs', 'analyses',
-                'genomicVariations']
+                'genomicVariations', 'cohorts', 'datasets']
 WARN_NO_MAPPING = '%s "%s" has no mapping'
 
 # associate each schema document with its resolver

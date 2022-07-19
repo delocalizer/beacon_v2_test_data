@@ -9,7 +9,8 @@
     "duoDataUse": [
       {
         "id": "DUO:0000021",
-        "label": "ethics approval required"
+        "label": "ethics approval required",
+        "version": "http://purl.obolibrary.org/obo/duo/releases/2021-02-23/duo-basic.owl"
       }
     ]
   }

@@ -1,4 +1,7 @@
 {
+  "id": "EGAD00001003388_beacon_demo_cutaneous_WGS",
+  "name": "EGAD00001003388 demo subset cutaneous melanoma cases with WGS data",
+  "cohortType": "study-defined",
   "cohortDataTypes": [
     {
       "id": "EFO:0004600",
@@ -12,8 +15,5 @@
       "id": "NCIT:C142508",
       "label": "demographic data"
     }
-  ],
-  "cohortName": "EGAD00001003388 demo subset cutaneous melanoma cases with WGS data",
-  "cohortId": "EGAD00001003388_beacon_demo_cutaneous_WGS",
-  "cohortType": "study-defined"
+  ]
 }
