@@ -41,9 +41,7 @@ org_info = ('OUR PURPOSE '
 #
 # Project info
 #
-description = (r"This <a href='https://beacon-project.io/'>Beacon</a> "
-               r"is based on the GA4GH Beacon "
-               r"<a href='https://github.com/ga4gh-beacon/specification-v2/blob/master/beacon.yaml'>v2.0</a>")
+description = ("Demonstrating data discovery via beacon")
 version = 'v2.0'
 welcome_url = 'https://qimrberghofer.edu.au/beacon-placeholder/api'
 alternative_url = ''
