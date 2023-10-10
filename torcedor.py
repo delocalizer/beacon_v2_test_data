@@ -5,6 +5,7 @@ import json
 import logging
 import os
 from collections import defaultdict
+from contextlib import contextmanager
 from urllib.request import urlopen
 
 from jsonschema import validate, RefResolver
@@ -56,7 +57,6 @@ def individuals(termmap):
     graph = do_query(query).graph
     indivs = []
     schema, resolver = SCHEMA['individuals']
-    _toggle_https_proxy()
 
     for donor in set(graph.subjects()):
         indiv = {'$schema': 'individuals/defaultSchema.json'}
@@ -67,24 +67,24 @@ def individuals(termmap):
         indiv['id'] = _value(p_o, ':uuid')
         indiv['sex'] = _value(p_o, ':donorSex', mapping=termmap)
         indiv['geographicOrigin'] = _value(p_o, ':donorRegionOfResidence',
-                                           mapping=RESIDENCE_REGION)
+                                        mapping=RESIDENCE_REGION)
         diseaseCode = _value(p_o, ':donorDiagnosisIcd10',
-                             mapping=DISEASE_DIAGNOSIS)
+                            mapping=DISEASE_DIAGNOSIS)
         ageOfOnset = {
             'age': {'iso8601duration':
                     f'P{int(_value(p_o, ":donorAgeAtDiagnosis"))}Y'}}
         disease = {'diseaseCode': diseaseCode, 'ageOfOnset': ageOfOnset}
         familyHistory = _value(p_o, ':cancerHistoryFirstDegreeRelative',
-                               mapping=termmap)
+                            mapping=termmap)
         if familyHistory:
             disease['familyHistory'] = familyHistory
         indiv['diseases'] = [disease]
 
         LOGGER.info(f'validating individual {indiv["id"]}')
-        validate(indiv, schema=schema, resolver=resolver)
+        with _https_proxy():
+            validate(indiv, schema=schema, resolver=resolver)
         indivs.append(indiv)
 
-    _toggle_https_proxy()
     return indivs
 
 
@@ -100,7 +100,6 @@ def biosamples(termmap):
     graph = do_query(query).graph
     smpls = []
     schema, resolver = SCHEMA['biosamples']
-    _toggle_https_proxy()
 
     for collectedsample in set(graph.subjects()):
         smpl = {'$schema': 'biosamples/defaultSchema.json'}
@@ -111,7 +110,7 @@ def biosamples(termmap):
         smpl['id'] = _value(p_o, ':uuid')
         smpl['individualId'] = _value(p_o, ':individualId', fragment=True)
         smpl['biosampleStatus'] = _value(p_o, ':specimenType',
-                                         mapping=termmap)
+                                        mapping=termmap)
         sampleOriginType = {'id': 'OBI:0001479',
                             'label': 'specimen from organism'}
         if 'xenograft' in smpl['biosampleStatus']['label'].lower():
@@ -127,13 +126,13 @@ def biosamples(termmap):
                     p_o, ':tumourHistologicalType', mapping=HISTOLOGY)
         extras = [':hasSampleTissue', ':hasSampleType', ':hasSampleMaterial']
         smpl['notes'] = '|'.join(_value(p_o, p, fragment=True)
-                                 for p in extras)
+                                for p in extras)
 
         LOGGER.info(f'validating biosample {smpl["id"]}')
-        validate(smpl, schema=schema, resolver=resolver)
+        with _https_proxy():
+            validate(smpl, schema=schema, resolver=resolver)
         smpls.append(smpl)
 
-    _toggle_https_proxy()
     return smpls
 
 
@@ -149,7 +148,6 @@ def runs(termmap):
     graph = do_query(query).graph
     runs = []
     schema, resolver = SCHEMA['runs']
-    _toggle_https_proxy()
 
     for args in set(graph.subjects()):
         run = {'$schema': 'runs/defaultSchema.json'}
@@ -171,10 +169,10 @@ def runs(termmap):
         # * librarySelection ('RANDOM' if WGS)
 
         LOGGER.info(f'validating run {run["id"]}')
-        validate(run, schema=schema, resolver=resolver)
+        with _https_proxy():
+            validate(run, schema=schema, resolver=resolver)
         runs.append(run)
 
-    _toggle_https_proxy()
     return runs
 
 
@@ -190,7 +188,6 @@ def analyses(termmap):
     graph = do_query(query).graph
     analyses = []
     schema, resolver = SCHEMA['analyses']
-    _toggle_https_proxy()
 
     for args in set(graph.subjects()):
         analysis = {'$schema': 'analyses/defaultSchema.json'}
@@ -207,10 +204,10 @@ def analyses(termmap):
         analysis['pipelineName'] = _value(p_o, ':pipelineName')
 
         LOGGER.info(f'validating analysis {analysis["id"]}')
-        validate(analysis, schema=schema, resolver=resolver)
+        with _https_proxy():
+            validate(analysis, schema=schema, resolver=resolver)
         analyses.append(analysis)
 
-    _toggle_https_proxy()
     return analyses
 
 
@@ -234,20 +231,24 @@ def term_map(map_file):
     return map_
 
 
-def _toggle_https_proxy():
+@contextmanager
+def _https_proxy(*args, **kwds):
     """
-    graflipy.connect.get_sparqlstore requires HTTPS environment vars to be
-    unset for long queries to work but jsonschema requires them to be set for
-    the validator resolver to work. This sets/unsets the vars as required. When
-    setting vars the value from HTTP_PROXY or http_proxy is used.
+    Set https_proxy and HTTPS_PROXY env vars from their http/HTTP counterparts.
+    Required because graflipy.configure unsets the HTTPS vars in order to make
+    long-running queries to our internal db work properly (thanks, F5!) but
+    some tools & libs that require external access (e.g. jsonschema) require
+    them to be set.
     """
-    for httpsproxyvar in ('https_proxy', 'HTTPS_PROXY'):
-        if os.environ.get(httpsproxyvar):
-            del os.environ[httpsproxyvar]
-        else:
+    try:
+        for httpsproxyvar in ('https_proxy', 'HTTPS_PROXY'):
             httpproxyvar = httpsproxyvar.replace('s','').replace('S','')
             if os.environ.get(httpproxyvar):
                 os.environ[httpsproxyvar] = os.environ[httpproxyvar]
+        yield None
+    finally:
+        for httpsproxyvar in ('https_proxy', 'HTTPS_PROXY'):
+            del os.environ[httpsproxyvar]
 
 
 def _value(p_o, p, mapping=None, fragment=False):
@@ -284,7 +285,7 @@ if __name__ == '__main__':
         termmap = term_map(fh)
 
     instances_outfile = (
-        (individuals(termmap), 'output/individuals.json'),
+            #        (individuals(termmap), 'output/individuals.json'),
         (biosamples(termmap), 'output/biosamples.json'),
         (runs(termmap), 'output/runs.json'),
         (analyses(termmap), 'output/analyses.json'),
