@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.INFO)
 
 LOGGER = logging.getLogger(__name__)
 SCHEMA_BASEURI = ('https://raw.githubusercontent.com/ga4gh-beacon/'
-                  'beacon-v2-Models/main/BEACON-V2-Model')
+                  'beacon-v2/main/models/json/beacon-v2-default-model')
 SCHEMA_NAMES = ['individuals', 'biosamples', 'runs', 'analyses',
                 'genomicVariations', 'cohorts', 'datasets']
 WARN_NO_MAPPING = '%s "%s" has no mapping'
