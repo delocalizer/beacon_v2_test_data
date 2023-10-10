@@ -285,7 +285,7 @@ if __name__ == '__main__':
         termmap = term_map(fh)
 
     instances_outfile = (
-            #        (individuals(termmap), 'output/individuals.json'),
+        (individuals(termmap), 'output/individuals.json'),
         (biosamples(termmap), 'output/biosamples.json'),
         (runs(termmap), 'output/runs.json'),
         (analyses(termmap), 'output/analyses.json'),
